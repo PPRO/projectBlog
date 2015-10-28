@@ -1,0 +1,124 @@
+﻿@using DataAccess.Model
+@using WebApplication4.Helper
+
+<!DOCTYPE html>
+<html lang="Cs">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    @RenderSection("metadata", false)
+    <title>@RenderSection("Title", false)</title>
+    @*<link rel="icon" href="image/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="image/favicon.ico" type="image/x-icon" />*@
+    <link rel="stylesheet" href="@Url.Content("~/Content/bootstrap.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/style.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/camera.css")">
+
+    <script src="@Url.Content("~/Scripts/jquery.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery-migrate-1.2.1.js")"></script>
+    <script src="@Url.Content("~/Scripts/superfish.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.mobilemenu.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.easing.1.3.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.ui.totop.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.touchSwipe.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.equalheights.js")"></script>
+
+
+    <script src="@Url.Content("~/Scripts/camera.js")"></script>
+    <!--[if (gt IE 9)|!(IE)]><!-->
+    <script src="@Url.Content("~/Scripts/jquery.mobile.customized.min.js")"></script>
+    <!--<![endif]-->
+    <!--[if lt IE 9]>
+      <div style='text-align:center'><a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode"><image src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." /></a></div>
+      <link rel="stylesheet" href="assets/tm/css/tm_docs.css" type="text/css" media="screen">
+      <script src="assets/assets/js/html5shiv.js"></script>
+      <script src="assets/assets/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<!--==============================header=================================-->
+    @RenderSection("Fb", false)
+    <header id="header">
+        <div class="container">
+            <h1 class="navbar-brand navbar-brand_"><a href="@Url.Action("Index", "Home")"> <img alt="David Kovac" src="@Url.Content("~/image/logo.png")"></a></h1>
+        </div>
+        <div class="menuheader">
+            <div class="container">
+                <nav class="navbar navbar-default navbar-static-top tm_navbar" role="navigation">
+
+                    <ul class="nav sf-menu">
+                        <li class="@Html.MenuLink("Index", "Home",0)">
+                            @Html.ActionLink(Resource.Home, "Index", "Home")
+
+                        </li>
+                        <li class="@Html.MenuLink("AboutMe", "Home",0)">@Html.ActionLink(Resource.AboutMe, "AboutMe", "Home")</li>
+                        <li class="@Html.MenuLink("Index", "Blog",0)">@Html.ActionLink(Resource.Blog, "Index", "Blog")</li>
+                       
+                        <li class="@Html.MenuLink("Contact", "Home",0)">@Html.ActionLink(Resource.Contact, "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Správa", "Index", "Administration")</li>
+
+                        </ul>
+                    <ul class="social_icons_menu">
+                        <li>
+                            <a href="@Url.Action("Logout", "Login", new {area = ""})">Odhlásit</a>
+                        </li>
+                        <li>Přihlášen: @ViewBag.User</li>
+
+                    </ul>
+                   
+                </nav>
+
+
+
+            </div>
+        </div>
+    </header>
+    <!--==============================content=================================-->
+    <div id="content">
+
+        <!--==============================slider=================================-->
+        @RenderSection("slider", false)
+
+        <!--==============================row2=================================-->
+        @RenderBody()
+    </div>
+    <!--==============================footer=================================-->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 footercol">
+                    <ul class="social_icons clearfix">
+                        <li><a href="#"><img src="@Url.Content("~/image/follow_icon1.png")" alt="facebook"></a></li>
+                        <li><a href="#"><img src="@Url.Content("~/image/follow_icon2.png")" alt="google"></a></li>
+                        <li><a href="#"><img src="@Url.Content("~/image/follow_icon3.png")" alt="">twitter</a></li>
+                        <li><a href="#"><img src="@Url.Content("~/image/follow_icon4.png")" alt="RSS"></a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 footerlogo footercol">
+                    <a class="smalllogo2 logo" href="@Url.Action("Index", "Home")"><img src="@Url.Content("~/image/logofooter.png")" alt="David Kovac"></a>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 footercol">
+                    <p class="footerpriv">
+                        &copy; @Resource.OriginYear &bull; @Resource.MyName @Resource.MySurname
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="footercol">
+                    <div class=" row_2_footer text-center clearfix">
+                        <p class="">
+                            &copy; 2013 &bull; CSS template at <a rel="nofollow" href="http://www.templatemonster.com/" target="_blank">TemplateMonster.com</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/tm-scripts.js")"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

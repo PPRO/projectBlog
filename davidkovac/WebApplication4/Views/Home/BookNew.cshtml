@@ -1,0 +1,17 @@
+﻿@using DataAccess.Model
+@model IList<Book>
+
+@{
+    Layout = null;
+}
+
+
+<ul>
+    @foreach ( Book a in Model )
+    {
+        <li>
+            <a href="@Url.Action("BookDetail", "Book", new {id = a.Id})">@a.Title</a>
+        </li>
+        <p>@a.Description</p>
+    }
+</ul>

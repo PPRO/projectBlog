@@ -1,0 +1,99 @@
+﻿@using DataAccess.Model
+@model IList<ArticleCategory>
+@{
+    ViewBag.Title = "Kategorie";
+    Layout = "~/Areas/admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+    <h1>Seznam kategorií</h1>
+
+
+
+    @if ( TempData["message-success"] != null )
+    {
+        <div class="alert alert-warning alert-dismissible fade in" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+            @TempData["message-success"]
+        </div>
+    }
+
+
+
+
+    <a href="@Url.Action("CreateCategory", "Administration")" class="btn btn btn-danger pull-right">Pridat kategorii</a>
+    <div class="clear"></div>
+    <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+
+                <th>Id</th>
+                <th>Nazev</th>
+                <th>akce</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ( ArticleCategory b in Model )
+            {
+                <tr>
+                    <td>
+                        @b.Id
+                    </td>
+                    <td>@b.Name</td>
+                    <!--html extension metoda
+                    <td>Ajax.ActionLink( article.Title, "Detail", new { id = article.Id }, new AjaxOptions() { UpdateTargetId = "modalContent", InsertionMode = InsertionMode.Replace, OnComplete = "openModalWindow" } )</td>
+                    -->
+                    <td>
+                        @Html.ActionLink("Editovat", "EditCategory", "Administration", new
+                   {
+                       id = b.Id
+                   }, null)
+                        @Html.ActionLink("Smazat", "DeleteCategory", "Administration", new
+                   {
+                       id = b.Id
+                   }, null)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="clear"></div>
+
+    @if ( ViewBag.Pages != null )
+    {
+        <nav>
+            <ul class="pagination">
+
+                @for ( int i = 1; i <= ViewBag.Pages; i++ )
+                {
+                    <li class="@(ViewBag.CurrentPage == i ? "active" : "")">
+                        @Ajax.ActionLink(i.ToString(), "Index", new
+                   {
+                       page = i
+                   },
+                        new AjaxOptions()
+                        {
+                            InsertionMode = InsertionMode.Replace,
+                            UpdateTargetId = "dynamicContent"
+                        })
+
+                    </li>
+
+                }
+
+
+
+
+            </ul>
+        </nav>
+
+    }
+
+<script type="text/javascript">
+    function openModalWindow() {
+        $('#myModal').modal({
+            show: true
+        });
+    }
+</script>
+

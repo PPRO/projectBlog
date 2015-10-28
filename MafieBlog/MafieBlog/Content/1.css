@@ -1,0 +1,343 @@
+/*homepage motive*/
+
+/*html*/
+body{
+
+	background-color: aqua;
+}
+
+/*links*/
+a{
+  color: #37800f;
+}
+a:hover{
+  color: #37880f;
+}
+
+/*navbar*/
+.navbar {
+  background-color: #000000;
+  border-color:#fff;
+}
+.navbar .navbar-text {
+  color: #fff;
+}
+.navbar a{
+  text-decoration:none;
+}
+.navbar .navbar-nav > li > a {
+  color: #fff;
+}
+.navbar .navbar-nav > li > a:hover,
+.navbar .navbar-nav > li > a:focus {
+  color: #000;
+  background-color: #fff;
+}
+.navbar .navbar-nav > .active > a,
+.navbar .navbar-nav > .active > a:hover,.navbar .navbar-nav > .active > a:focus {
+  color: #000;
+  background-color: #fff;
+}
+.navbar .navbar-nav > .disabled > a,
+.navbar .navbar-nav > .disabled > a:hover,
+.navbar .navbar-nav > .disabled > a:focus {
+  color: #000;
+  background-color: #fff;
+}
+.navbar .navbar-nav > .open > a,
+.navbar .navbar-nav > .open > a:hover,
+.navbar .navbar-nav > .open > a:focus {
+  color: #000;
+  background-color: #fff;
+}
+.navbar .dropdown-menu > li > a:hover,
+.navbar .dropdown-menu > li > a:focus {
+  color: #fff;
+  background-color: #006197;
+}
+.navbar .dropdown-menu > .active > a,
+.navbar .dropdown-menu > .active > a:hover,
+.navbar .dropdown-menu > .active > a:focus {
+  color: #fff;
+  background-color: #006197;
+}
+@media (min-width: 768px) {
+  .navbar-nav > li {
+    border-left-color: #338db8;
+    border-right-color: #338db8;
+  }
+}
+
+/*breadcrumb*/
+.breadcrumb{
+  background: #FFFFFF;
+}
+.breadcrumb a {
+  color: #a3a3a3;
+}
+.breadcrumb a:hover{
+  color:#666;
+}
+.breadcrumb > .active {
+  color: #000;
+}
+
+/*aside*/
+aside .panel {
+}
+aside .panel-primary > .panel-heading {
+  color: #fff;
+  background-color: #000;
+  border-color: #fff;
+}
+aside .panel .panel-body{
+  border: 1px solid #EAEAEA;
+}
+
+/*aside menu*/
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:focus {
+  color: #fff;
+  background-color: #333;
+}
+
+/*aside news*/
+ul#list-panel-news li div p.description{
+  border-left: 1px dotted #C7C7C7;
+}
+
+/*buttons*/
+.btn-primary {
+  color: #fff;
+  background-color: #006197;
+  border-color: #006197;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+  color: #fff;
+  background-color: #0e8cf7;
+  border-color: #0e8cf7;
+}
+
+/*.thumbnail*/
+.thumbnail{
+  border: 1px solid #eee;
+}
+.thumbnail .more{text-align:center;}
+.thumbnail .caption{
+  color: #252525;
+}
+
+
+/**********************************************/
+/************** Footer Section ****************/
+/**********************************************/
+
+#footer{
+	width:100%;
+	float:left;
+	background-image: url(../images/footer-bg.png);
+	min-height:40px;
+	margin-top:100px;
+}
+
+#footertop{
+	width:100%;
+	float:left;
+	background-image: url(../images/footer-top.png);
+	background-repeat: repeat-x;
+	background-position: left;
+}
+
+#footerbottom{
+	background-color:#0f0101;
+	width:100%;
+	box-shadow:0px -1px 5px #d0cfcf;
+	margin-top:25px;
+	min-height:46px;
+	position: fixed;
+	left: 0px;
+	bottom: 0px;
+	z-index:3000;
+}
+
+#copyright{
+	width:50%;
+	float:left;
+	font-family: 'HelveticaLTStdRoman',Arial, Helvetica, sans-serif;
+	font-size:10pt;
+	color:#aff229;
+	padding-top:16px;
+}
+
+#copyright a, #copyright a:visited,#copyright a:hover{
+	font-family: 'HelveticaLTStdRoman',Arial, Helvetica, sans-serif;
+	font-size:10pt;
+	color:#7e7e7e;
+}
+
+.footerwrap{
+	max-width:1000px;
+	float:none;
+	margin:0px auto 0px auto;
+}
+
+#footer-contact .fa{
+  color:#C7C7C7;
+}
+
+.price-current-vat{
+  color: #cc0000;
+}
+
+.icon-favourite{
+  color:#f5bd00;
+}
+
+.label.label-stock2{
+  color: #000;
+  border: 1px solid #000;
+  background: #fdfdfd;
+}
+.label.label-stock3{
+  color: #000;
+  border: 1px solid #000;
+  background: #fdfdfd;
+}
+
+
+ul#list-panel-categories li.active > a{
+  border-left-color: #006197;
+}
+
+#topbar .btn-default{
+  color: #fff;
+  background-color: #006197;
+  border-color: #006197;
+}
+#topbar .btn-default:hover,
+#topbar .btn-default:focus,
+#topbar .btn-default:active,
+#topbar .btn-default.active,
+#topbar .open > .dropdown-toggle.btn-default {
+  color: #fff;
+  background-color: #0e8cf7;
+  border-color: #0e8cf7;
+}
+
+/**********************************************/
+/************** Social Buttons ****************/
+/**********************************************/
+
+.social{
+	width:auto;
+	float:right;
+	height:46px;
+}
+
+.social ul{
+	width:auto;
+	float:right;
+	height:46px;
+	padding:0px;
+	margin:0px;
+}
+
+.social ul li{
+	width:46px;
+	float:left;
+	display:inline-block;
+	height:46px;
+	border: 1px solid #d5d5d5;
+	list-style-type: none;
+	background-color: #faf18a;
+	margin-left:-1px;
+}
+
+.socialfooter{
+	width:auto;
+	float:right;
+	height:46px;
+}
+
+.socialfooter ul{
+	width:auto;
+	float:right;
+	height:46px;
+	padding:0px;
+	margin:0px;
+}
+
+.socialfooter ul li{
+	width:46px;
+	float:left;
+	display:inline-block;
+	height:46px;
+	border-right: 1px solid #d5d5d5;
+	border-left: 1px solid #d5d5d5;
+	list-style-type: none;
+	background-color:#cff66f;
+	margin-left:-1px;
+}
+
+.social ul li a{
+	border:0px;
+}
+
+.social-google{
+	width:46px;
+	display:block;
+	height:46px;
+	background-image: url(../images/social-slider.png);
+	background-repeat: no-repeat;
+	background-position: -7px -1px;
+}
+
+.social-google:hover{
+	width:46px;
+	display:block;
+	height:46px;
+	background-image: url(../images/social-slider.png);
+	background-repeat: no-repeat;
+	background-position: -7px -47px;
+}
+
+.social-facebook{
+	width:46px;
+	display:block;
+	height:46px;
+	background-image: url(../images/social-slider.png);
+	background-repeat: no-repeat;
+	background-position: -53px -2px;
+}
+
+.social-facebook:hover{
+	width:46px;
+	display:block;
+	height:46px;
+	background-image: url(../images/social-slider.png);
+	background-repeat: no-repeat;
+	background-position: -53px -48px;
+}
+
+.social-twitter{
+	width:46px;
+	display:block;
+	height:46px;
+	background-image: url(../images/social-slider.png);
+	background-repeat: no-repeat;
+	background-position: -102px -2px;
+}
+
+.social-twitter:hover{
+	width:46px;
+	display:block;
+	height:46px;
+	background-image: url(../images/social-slider.png);
+	background-repeat: no-repeat;
+	background-position: -102px -48px;
+}

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="DataAccess" namespace="DataAccess.Model">
+
+  <class name="User" table="dako_user" lazy="false">
+    <id name="Id" column="id_user">
+      <generator class="native" />
+    </id>
+    <property name="Name" column="name"/>
+    <property name="Surname" column="surname"/>
+    <property name="Login" column="nickname"/>
+    <property name="Mail" column="email"/>
+    <property name="Password" column="password"/>
+    <many-to-one name="Role" column="id_role" foreign-key="id_role" />
+
+  </class>
+
+</hibernate-mapping>

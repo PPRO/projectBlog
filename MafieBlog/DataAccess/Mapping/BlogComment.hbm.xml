@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="DataAccess" namespace="DataAccess.Model">
+
+	<class name="BlogComment" table="blog_comment">
+		<id name="Id" column="comment_id">
+			<generator class="native" />
+		</id>
+		<property name="Name" column="name" />
+		<property name="Email" column="email"/>
+		<property name="CommentDate" column="comment_date"/>
+		<property name="Comment" column="comment"/>
+		<many-to-one name="Article" column="article_id" foreign-key="article_id"/>
+		
+	</class>
+
+</hibernate-mapping>

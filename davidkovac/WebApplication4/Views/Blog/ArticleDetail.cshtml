@@ -1,0 +1,51 @@
+﻿@using DataAccess.Model
+@model Article
+@{
+    ViewBag.Title = "ArticleDetail";
+}
+@section metadata
+{
+    <meta name="description" content="@Model.Metadata ">
+    <meta name="keywords" content="@Model.Keywords">
+    <meta name="author" content="@Resource.MyName @Resource.MySurname, @Resource.Email = @Resource.EmailAddress">
+}
+
+@section Title
+{
+    @Resource.MyName @Resource.MySurname - @Resource.Blog
+}
+
+@section Fb
+{
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/cs_CZ/sdk.js#xfbml=1&version=v2.4";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+}
+
+<div class="row_5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7 col-md-7 col-sm-7 reserve_table">
+
+                <h1>@Model.Title</h1>
+                @Html.Raw(Model.Text)
+                <p class="podpis">
+                    <strong>@Resource.Author: @Model.User.Name @Model.User.Surname </strong>
+                </p>
+                <div>
+                    <div class="fb-like" data-href="http://localhost:57004/Blog/ArticleDetail/"
+                         data-width="20" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+                </div>
+            </div>
+
+        </div>
+        </div>
+</div>
+
+

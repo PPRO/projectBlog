@@ -1,0 +1,33 @@
+﻿@using DataAccess.Model
+@model IList<BlogComment>
+@{
+    ViewBag.Title = "ShowComment";
+	Layout = null;
+}
+	
+
+<h2 class="subtitle">Přehled komentářů</h2>
+	@foreach (BlogComment com in Model)
+	{
+		<ul id="list-comments" class="media-list">
+
+			<li class="media">
+				<div class="media-body">
+
+					<p class="text-muted">
+						<span class="date">@com.CommentDate.ToShortDateString()</span>
+						<span class="vertical-line">|</span> <strong class="author">@com.Name</strong>
+					</p>
+					<p class="comment">
+						@Html.Raw(@com.Comment)<br/>
+
+					</p>
+				</div>
+			</li>
+		</ul>
+	}
+
+
+
+
+

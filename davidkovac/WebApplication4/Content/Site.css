@@ -1,0 +1,138 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/*-------- vypis clanku -----------*/
+ul#listdata, ul#list-pages {
+  padding:0;
+  margin:30px auto 20px;
+}
+
+#listdata li, ul#list-pages li {
+  list-style:none;
+  background: -moz-linear-gradient(top, rgba(240,244,247,1) 0%, rgba(240,244,247,0) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(240,244,247,1)), color-stop(100%,rgba(240,244,247,0)));
+  background: -webkit-linear-gradient(top, rgba(240,244,247,1) 0%,rgba(240,244,247,0) 100%);
+  background: -o-linear-gradient(top, rgba(240,244,247,1) 0%,rgba(240,244,247,0) 100%);
+  background: -ms-linear-gradient(top, rgba(240,244,247,1) 0%,rgba(240,244,247,0) 100%);
+  background: linear-gradient(to bottom, rgba(240,244,247,1) 0%,rgba(240,244,247,0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0f4f7', endColorstr='#00f0f4f7',GradientType=0 );
+  border: 1px solid #eee;
+  padding: 10px;
+}
+
+ul#listdata li img, ul#list-pages li img {
+  margin: 0 0 10px;
+}
+
+p.details {
+  border-top: 1px solid #eee;
+  padding: 5px 0 0 0;
+  margin: 20px 0 0;
+  font-size: 1em;
+  color: #252020;
+  clear:both;
+}
+
+#pagination li {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+
+/* --------------- VYPIS KOMENTARU -------------- */
+ul#list-comments li {
+  background: -moz-linear-gradient(top, rgba(240,244,247,1) 0%, rgba(240,244,247,0) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(240,244,247,1)), color-stop(100%,rgba(240,244,247,0)));
+  background: -webkit-linear-gradient(top, rgba(240,244,247,1) 0%,rgba(240,244,247,0) 100%);
+  background: -o-linear-gradient(top, rgba(240,244,247,1) 0%,rgba(240,244,247,0) 100%);
+  background: -ms-linear-gradient(top, rgba(240,244,247,1) 0%,rgba(240,244,247,0) 100%);
+  background: linear-gradient(to bottom, rgba(240,244,247,1) 0%,rgba(240,244,247,0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0f4f7', endColorstr='#00f0f4f7',GradientType=0 );
+  border: 1px solid #eee;
+  padding: 5px;
+  border: 1px solid #d2d2d2;
+}
+p.comment {
+  border-top: 1px solid #d2d2d2;
+  padding: 5px 0 0 0;
+}
+
+/********************************************/
+/********************************************/
+@media screen and (min-width: 1200px) {
+  .col-lg-push-3 {
+    left: 30%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .col-lg-push-3 {
+    left: 30%;
+  }
+  .col-lg-3 {
+    width: 30%;
+  }
+  .col-lg-9 {
+    width: 70%;
+  }
+  .col-lg-pull-9 {
+  right: 70%;
+  }
+}
+
+@media screen and (max-width:1199px) {
+  .navbar-nav > li > a {
+      font-size:1em;
+  }
+}
+@media screen and (max-width:991px) {
+  header {
+    min-height:30px;
+    background:none;
+  }
+  header .col-sm-6 {
+    margin: 15px 0 0 0;
+  }
+  #logo {
+    margin: 0 0 15px;
+  }
+}
+
+#scrolltab{
+	width:40px;
+	height:40px;
+	position:fixed;
+	top:50%;
+	right:10px;
+	margin-top:-20px;
+	background-color: red;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+	filter: alpha(opacity=50);
+	-moz-opacity:0.5;
+	-khtml-opacity: 0.5;
+	opacity: 0.5;
+	border: 1px solid grey;
+	border-radius:4px;
+	z-index:2000;
+	display:none;
+	background-image: url(../images/scrolltop.png);
+	background-repeat: no-repeat;
+	background-position: 0px 1px;
+	cursor:pointer;
+}
+

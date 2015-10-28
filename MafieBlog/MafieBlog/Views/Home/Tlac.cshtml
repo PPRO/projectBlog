@@ -1,0 +1,26 @@
+﻿@model MafieBlog.Models.TlacitkoModel
+@{
+    ViewBag.Title = "Tlac";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@section head{
+    <meta name="description" content="Blog o mafii z celého světa.">
+    <meta name="keywords" content="mafie,blog,americka mafie, italska mafie, ceska mafie, jakuza, ruska mafie, cosa nostra">
+    <meta name="robots" content="all">
+    <title>Mafie Blog</title>
+}
+
+<h2>Zajimavosti</h2>
+
+
+<input type="checkbox" name="Tlacitko" value="1" checked="@Model.IsCheck" id="check" />
+
+<input type="button" onclick="@Url.Action("Zajimavosti")" />
+
+@TempData["ano"]
+
+
+

@@ -1,0 +1,89 @@
+﻿@using DataAccess.Model
+@model IList<Article>
+@{
+	ViewBag.Title = "Index";
+}
+@section head{
+	<meta name="description" content="Blog o mafii z celého světa.">
+	<meta name="keywords" content="mafie,blog,americka mafie, italska mafie, ceska mafie, jakuza, ruska mafie, cosa nostra">
+	<meta name="robots" content="all">
+	<title>Mafie Blog</title>
+}
+		<main class="col-xs-12 col-sm-12 col-md-8 col-md-push-4 col-lg-9 col-lg-push-3">
+
+			<h1>Mafie</h1>
+
+			<p class="uvodnik">často označovaná „skutečnými pány“ Itálie jako Cosa Nostra („naše věc“), je tajná společnost vzniklá v polovině 19. století na Sicílii. Její odnož se objevila ke konci 19. století na východním pobřeží Spojených států společně s vlnou italských imigrantů. Členové mafie byli vždy jen muži. Moc mafie ve Spojených státech vrcholila v průběhu 20. století, dokud vyšetřování FBI v 70. a 80. letech její vliv nesnížilo. O její oslabení se také stará Interpol. Navzdory úpadku se mafie a její reputace zakořenila v americké populární kultuře, především filmech, seriálech a dokonce reklamě. I po úpadku zůstala mafie jednou z nejmocnějších kriminálních organizací ve Spojených státech. Ovládá kriminální podsvětí především v Chicagu a New Yorku. Mafie také nadále působí ve své „domovské“ vlasti, Itálii.</p>
+
+			<ul id="listdata">
+				@foreach (Article a in Model)
+				{
+					<li class="media">
+						<div class="media-body">
+
+							<h2 class="subtitle media-heading">
+								<a title="@a.Title" href="@Url.Action("ArticleDetail", "Rubrika", new {id = a.Id})">@a.Title</a>
+							</h2>
+							<p class="perex">
+								<p>
+									<img style="float: left; padding-right: 10px;"
+									     src="@Url.Content("~/uploads/articleImage/" + a.ImageName)"
+									     alt="" width="200" height="200"/>
+									@Html.Raw(a.Description)
+								</p>
+							</p>
+							<p class="details">
+								@a.PostDate.ToShortDateString()
+								| Rubrika:
+								@if (a.Category.Id == 1)
+								{
+									<a href="@Url.Action("Amerika", "Rubrika")">@a.Category.Name</a>
+								}
+								else if (a.Category.Id == 2)
+								{
+									<a href="@Url.Action("Cesko", "Rubrika")">@a.Category.Name</a>
+								}
+								else if (a.Category.Id == 3)
+								{
+									<a href="@Url.Action("Italie", "Rubrika")">@a.Category.Name</a>
+								}
+								else if (a.Category.Id == 4)
+								{
+									<a href="@Url.Action("Jakuza", "Rubrika")">@a.Category.Name</a>
+								}
+								else if (a.Category.Id == 5)
+								{
+									<a href="@Url.Action("Rusko", "Rubrika")">@a.Category.Name</a>
+								}
+
+								| Autor: @a.User.Name
+								| Komentáře: @a.CountComment
+							</p>
+						</div>
+					</li>
+				}
+
+			</ul>
+			@if( ViewBag.Pages != null )
+			{
+				<nav>
+					<ul class="pagination">
+
+						@for( int i = 1; i <= ViewBag.Pages; i++ )
+						{
+							<li class="@(ViewBag.CurrentPage == i ? "active" : "")">
+								@Ajax.ActionLink( i.ToString(), "Index", new { page = i },
+									new AjaxOptions() { InsertionMode = InsertionMode.Replace, UpdateTargetId = "dynamicContent" } )
+
+							</li>
+
+						}
+
+
+					</ul>
+				</nav>
+
+			}
+			
+		</main>
+	

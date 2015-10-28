@@ -1,0 +1,23 @@
+﻿@model DataAccess.Model.BlogUser
+@{
+	ViewBag.Title = "Index";
+    Layout = null;
+}
+
+@if( Model.Role.Identificator == "admin" )
+{
+	<li><a href="@Url.Action("Index", "Article")">Seznam clanku</a></li>
+	<li><a href="@Url.Action("Create", "Article")">Pridat clanek</a></li>
+	<li><a href="@Url.Action("Index", "User")">Seznam uzivatelu</a></li>
+	<li><a href="@Url.Action("CreateUser", "User")">Vytvorit uzivatele</a></li>
+
+}
+
+@if( Model.Role.Identificator == "redaktor" )
+{
+
+	<li><a href="@Url.Action("Index", "Article")">Seznam clanku</a></li>
+	<li><a href="@Url.Action("Create", "Article")">Pridat clanek</a></li>
+
+}
+<li><a href="@Url.Action("Logout", "Login")">Odhlásit se</a></li>

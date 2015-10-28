@@ -1,0 +1,20 @@
+﻿@using DataAccess.Model
+@model IList<Book>
+
+@{
+    Layout = null;
+}
+
+
+<ul>
+    @foreach ( Book a in Model )
+    {
+        <li>
+            @Html.ActionLink(a.Title, "BookDetail", "Book", new
+       {
+           id = a.Id
+       }, null)
+        </li>
+        <p>@a.Description</p>
+    }
+</ul>

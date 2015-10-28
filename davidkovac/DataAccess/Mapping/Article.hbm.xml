@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="DataAccess" namespace="DataAccess.Model">
+
+  <class name="Article" table="article">
+    <id name="Id" column="id_article">
+      <generator class="native" />
+    </id>
+    <property name="Title" column="titleCs" length="100" not-null="true" />
+    <property name="Description" column="descriptionCs" length="500" not-null="true"/>
+    <property name="Metadata" column="metadataCs" length="200" not-null="true"/>
+    <property name="Text" column="textCs" not-null="true" />
+    <property name="Keywords" column="keywordsCs" not-null="true" />
+    <property name="ImageName" column="photo" not-null="false" />
+    <property name="PosteDate" column="date" not-null="true" />
+    <many-to-one name="User" column="id_user" foreign-key="id_user" not-null="true"/>
+    <many-to-one name="Category" column="id_category" foreign-key="id_category" not-null="true" />
+
+  </class>
+
+</hibernate-mapping>

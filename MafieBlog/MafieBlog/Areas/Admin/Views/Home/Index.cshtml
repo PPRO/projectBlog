@@ -1,0 +1,35 @@
+﻿@model DataAccess.Model.BlogUser
+@{
+    ViewBag.Title = "Index";
+}
+
+@section user
+{
+	<div class="panel-body">
+	<p>Jmeno: @ViewBag.Pozdrav</p>
+</div>
+}
+<main class="col-xs-12 col-sm-12 col-md-8 col-md-push-4 col-lg-9 col-lg-push-3">
+
+	<h1>Blog Davida</h1>
+
+	<p class="uvodnik">Novinky, návody, tipy a triky přímo od tvůrců redakčního systému inPage pro všechny jeho uživatele. Nebojte se experimentovat a vylepšete vaše stránky! Tento blog vám s tím pomůže.</p>
+
+	<ul id="listdata">
+	
+		
+		<div id="pagination" class="paginator">
+			<ul id="list-eshop-pagination" class="pagination">
+
+				<li class="disabled"><span>&laquo;</span></li>
+
+				<li class="active"><!--strankovani--></li>
+
+
+				<li><a href="?2">»</a></li>
+
+			</ul>
+		</div>
+	</ul>
+</main>
+

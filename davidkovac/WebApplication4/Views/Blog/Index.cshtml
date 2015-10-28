@@ -1,0 +1,102 @@
+﻿@using DataAccess.Model
+@using WebApplication4.Helper
+@model IList<Article>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@section metadata
+{
+    <meta name="description" content="Blog Davida Kováče">
+    <meta name="keywords" content="david kováč, blog">
+    <meta name="author" content="David Kováč, email = david.kovac@uhk.cz">
+}
+
+@section Title
+{
+    Blog - David Kováč
+}
+
+<div class="boxP">
+
+    <h1 class="title1">Mafie</h1>
+
+    <p class="title2">často označovaná „skutečnými pány“ Itálie jako Cosa Nostra („naše věc“), je tajná společnost vzniklá v polovině 19. století na Sicílii. Její odnož se objevila ke konci 19. století na východním pobřeží Spojených států společně s vlnou italských imigrantů. Členové mafie byli vždy jen muži. Moc mafie ve Spojených státech vrcholila v průběhu 20. století, dokud vyšetřování FBI v 70. a 80. letech její vliv nesnížilo. O její oslabení se také stará Interpol. Navzdory úpadku se mafie a její reputace zakořenila v americké populární kultuře, především filmech, seriálech a dokonce reklamě. I po úpadku zůstala mafie jednou z nejmocnějších kriminálních organizací ve Spojených státech. Ovládá kriminální podsvětí především v Chicagu a New Yorku. Mafie také nadále působí ve své „domovské“ vlasti, Itálii.</p>
+
+    
+    </div>
+
+    <div class="row_5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 col-md-7 col-sm-7 reserve_table">
+                    <ul class="row">
+                        @foreach ( Article a in Model )
+                        {
+                            <li class="media">
+                                <div class="media-body">
+
+                                    <h2 class="subtitle media-heading">
+                                        <a title="@a.Title" href="@Url.Action("ArticleDetail", "Blog", new {id = a.Id})">@a.Title</a>
+                                    </h2>
+                                    <p class="perex"></p>
+                                    <p>
+
+                                        @Html.Raw(a.Description)
+                                    </p>
+                                    <p></p>
+                                    <p class="details">
+                                        @a.PosteDate.ToShortDateString()
+                                        | Rubrika:@a.Category.Name
+                                    </p>
+                                    <div>
+                                        <div class="fb-like" data-href="http://localhost:57004/Blog/ArticleDetail/"
+                                              data-width="20" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+
+                    </ul>
+                    @if ( ViewBag.Pages != null )
+                    {
+                        <nav>
+                            <ul class="pagination">
+
+                                @for ( int i = 1; i <= ViewBag.Pages; i++ )
+                                {
+                                    <li class="@(ViewBag.CurrentPage == i ? "active" : "")">
+                                        @Ajax.ActionLink(i.ToString(), "Index", new
+                           {
+                               page = i
+                           },
+                                    new AjaxOptions()
+                                    {
+                                        InsertionMode = InsertionMode.Replace,
+                                        UpdateTargetId = "dynamicContent"
+                                    })
+
+                                    </li>
+
+                                }
+
+
+                            </ul>
+                        </nav>
+
+                    }
+                </div>
+
+                <div class="col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-lg-4 col-md-4 col-sm-4">
+                    <h2>Rubrika</h2>
+                   
+                    <ul>
+                        @{Html.RenderAction("MenuRubrika", "Blog");}
+
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="DataAccess" namespace="DataAccess.Model">
+
+  <class name="Article" table="blog_article">
+    <id name="Id" column="article_id">
+      <generator class="native" />
+    </id>
+    <property name="Title" column="title" />
+    <property name="Text" column="text"/>
+    <property name="PostDate" column="post_date"/>
+    <property name="Description" column="description"/>
+    <property name="ImageName" column="image_name"/>
+    <property name="CountComment" column="comment_count"/>
+    <many-to-one name="Category" column="category_id" foreign-key="category_id"/>
+	<many-to-one name="User" column="user_id" foreign-key="user_id"/>
+
+  </class>
+
+</hibernate-mapping>

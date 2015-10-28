@@ -1,0 +1,26 @@
+﻿@using MafieBlog.Class
+@model DataAccess.Model.BlogUser
+@{
+    ViewBag.Title = "Menu";
+	Layout = null;
+}
+
+
+
+<li class="@Html.MenuLink( "Index", "Home")"><a href="@Url.Action("Index", "Home")">Úvodní strana</a></li>
+
+<li class="@Html.MenuLink( "Amerika", "Rubrika" )"><a href="@Url.Action( "Amerika", "Rubrika" )">Americká mafie</a></li>
+
+<li class="@Html.MenuLink( "Cesko", "Rubrika" )"><a href="@Url.Action( "Cesko", "Rubrika" )">Česká mafie</a></li>
+
+<li class="@Html.MenuLink( "Italie", "Rubrika" )"><a href="@Url.Action( "Italie", "Rubrika" )">Italská mafie</a></li>
+
+<li class="@Html.MenuLink( "Jakuza", "Rubrika" )"><a href="@Url.Action( "Jakuza", "Rubrika" )">Jakuza</a></li>
+
+<li class="@Html.MenuLink( "Rusko", "Rubrika" )"><a href="@Url.Action( "Rusko", "Rubrika")">Ruská mafie</a></li>
+
+<li class="@Html.MenuLink( "Zajimavosti", "Home" )"><a href="@Url.Action( "Zajimavosti", "Home" )">Zajímavosti</a></li>
+
+<li class="@Html.MenuLink( "Kontak", "Home" )"><a href="@Url.Action( "Kontakt", "Home" )">Kontakt</a></li>
+
+

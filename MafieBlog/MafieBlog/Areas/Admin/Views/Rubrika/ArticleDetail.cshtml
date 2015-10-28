@@ -1,0 +1,24 @@
+﻿@using DataAccess.Model
+@model Article
+@{
+    ViewBag.Title = "ArticleDetail";
+
+}
+@section user
+{
+	<div class="panel-body">
+		<p>Jmeno: @ViewBag.Pozdrav</p>
+	</div>
+}
+<main class="col-xs-12 col-sm-12 col-md-8 col-md-push-4 col-lg-9 col-lg-push-3">
+
+	<div id="mainContent">
+		<h1>@Model.Title</h1>
+		<p>@Html.Raw(Model.Text)</p>
+	</div>
+
+
+
+	<p class="podpis"><strong>Autor: @Model.User.Name @Model.User.Surname </strong></p>
+
+</main>

@@ -1,0 +1,102 @@
+﻿@using DataAccess.Model
+@model IList<Book>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@section metadata
+{
+    <meta name="description" content="Blog Davida Kováče">
+    <meta name="keywords" content="david kováč, blog">
+    <meta name="author" content="David Kováč, email = david.kovac@uhk.cz">
+}
+
+@section Title
+{
+    Blog - David Kováč
+}
+<div class="boxP">
+
+    <h1 class="title1">Knihy</h1>
+
+    <p class="title2">O knih8ch</p>
+
+
+</div>
+
+<div class="row_5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7 col-md-7 col-sm-7 reserve_table">
+                <ul class="row">
+                    @foreach ( Book a in Model )
+                    {
+                        <li class="media">
+                            <div class="media-body">
+
+                                <h2 class="subtitle media-heading">
+                                    <a title="@a.Title" href="@Url.Action("BookDetail", "Book", new {id = a.Id})">@a.Title</a>
+                                </h2>
+                                <p class="perex"></p>
+                                <p>
+
+                                    @Html.Raw(a.Description)
+                                </p>
+                                <p></p>
+                                <p class="details">
+                                    @a.PosteDate.ToShortDateString()
+                                    | Rubrika:@a.Category.Name
+                                </p>
+                                <div>
+                                    <div class="fb-like" data-href="http://localhost:57004/Blog/ArticleDetail/"
+                                         data-width="20" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+                                </div>
+                            </div>
+                        </li>
+                    }
+
+                </ul>
+                @if ( ViewBag.Pages != null )
+                {
+                    <nav>
+                        <ul class="pagination">
+
+                            @for ( int i = 1; i <= ViewBag.Pages; i++ )
+                            {
+                                <li class="@(ViewBag.CurrentPage == i ? "active" : "")">
+                                    @Ajax.ActionLink(i.ToString(), "Index", new
+                           {
+                               page = i
+                           },
+                                    new AjaxOptions()
+                                    {
+                                        InsertionMode = InsertionMode.Replace,
+                                        UpdateTargetId = "dynamicContent"
+                                    })
+
+                                </li>
+
+                            }
+
+
+                        </ul>
+                    </nav>
+
+                }
+            </div>
+
+            <div class="col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-lg-4 col-md-4 col-sm-4">
+                <h2>ŽÁNRY</h2>
+                <ul>
+                    @foreach ( Book art in Model )
+                    {
+                        <li>@art.Category.Name</li>
+                    }
+
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</div>

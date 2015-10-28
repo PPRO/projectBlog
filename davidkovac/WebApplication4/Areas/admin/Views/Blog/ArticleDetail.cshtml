@@ -1,0 +1,30 @@
+﻿@using DataAccess.Model
+@model Article
+@{
+    ViewBag.Title = "ArticleDetail";
+}
+@section metadata
+{
+    <meta name="description" content="@Model.Metadata">
+    <meta name="keywords" content="@Model.Keywords">
+    <meta name="author" content="David Kováč, email = david.kovac@uhk.cz">
+}
+
+@section Title
+{
+    @Model.Title
+}
+<div class="row_5">
+
+    <div id="mainContent">
+        <h1>@Model.Title</h1>
+        @Html.Raw(Model.Text)
+        <p class="podpis"><strong>Autor </strong>
+        </p>
+
+    </div>
+
+</div>
+   
+
+

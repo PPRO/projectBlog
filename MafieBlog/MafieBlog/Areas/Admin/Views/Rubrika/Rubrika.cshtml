@@ -1,0 +1,72 @@
+﻿@using DataAccess.Model
+@model IList<Article>
+@{
+    ViewBag.Title = "Rubrika";
+}
+@section user
+{
+	<div class="panel-body">
+		<p>Jmeno: @ViewBag.Pozdrav</p>
+	</div>
+}
+<main class="col-xs-12 col-sm-12 col-md-8 col-md-push-4 col-lg-9 col-lg-push-3">
+	@foreach (Article a in Model)
+	{
+
+
+		<h1>@a.Category.Name</h1>
+
+		<p class="rubric-main-perex">@a.Category.Description</p>
+
+		<ul id="listdata">
+
+
+			<li class="media">
+				<div class="media-body">
+
+					<h2 class="subtitle media-heading">
+						<a title="@a.Title" href="@Url.Action("ArticleDetail", "Rubrika", new {id = a.Category.Id})">@a.Title</a>
+					</h2>
+					<p class="perex">
+						<p>
+							<img style="float: left; padding-right: 10px;"
+							     src="@Url.Content("~/uploads/articleImage/" + a.ImageName)"
+							     alt="" width="200" height="200"/>
+							@a.Description
+						</p>
+					</p>
+					<p class="details">
+						@a.PostDate.ToShortDateString()
+						| Rubrika: @a.Category.Name
+						| Autor: @a.User.Name
+					</p>
+				</div>
+			</li>
+
+
+		</ul>
+	}
+	@if( ViewBag.Pages != null )
+	{
+		<nav>
+			<ul class="pagination">
+
+				@for( int i = 1; i <= ViewBag.Pages; i++ )
+				{
+					<li class="@(ViewBag.CurrentPage == i ? "active" : "")">
+						@Ajax.ActionLink( i.ToString(), "Index", new { page = i },
+						new AjaxOptions() { InsertionMode = InsertionMode.Replace, UpdateTargetId = "dynamicContent" } )
+
+					</li>
+
+				}
+
+
+			</ul>
+		</nav>
+
+	}
+</main>
+
+
+

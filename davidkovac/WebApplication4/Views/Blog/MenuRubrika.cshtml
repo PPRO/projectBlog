@@ -1,0 +1,17 @@
+﻿@using DataAccess.Model
+@using WebApplication4.Helper
+@model IList<Article>
+@{
+    ViewBag.Title = "MenuRubrika";
+    Layout = null;
+}
+
+
+@foreach ( Article art in Model )
+{
+    <li class="@Html.MenuLink(art.Category.Name, "Blog", art.Category.Id)">
+        @Html.ActionLink(art.Category.Name, "Rubrika", "Blog", new
+                                                {
+                                                    id = art.Category.Id
+                                                }, null)</li>
+}

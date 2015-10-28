@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="DataAccess" namespace="DataAccess.Model">
+
+  <class name="Author" table="author">
+    <id name="Id" column="id_author">
+      <generator class="native" />
+    </id>
+    <property name="Name" column="name" length="50" not-null="true" />
+    <property name="Surname" column="surname" length="50" not-null="true"/>
+    <property name="MiddleName" column="middleName" length="50" not-null="false"/>
+
+
+
+  </class>
+
+</hibernate-mapping>
